@@ -11,7 +11,7 @@ function isCurrentUrl($path) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo isset($page_title) ? $page_title . ' - MinhGiangPC.Com' : 'Dashboard - MinhGiangPC.Com'; ?></title>
-    <link rel="shortcut icon" href="/assets/img/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/assets/media/favicon.ico" type="image/x-icon">
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
@@ -27,7 +27,7 @@ function isCurrentUrl($path) {
                 <button class="btn btn-link text-dark me-3 d-flex" id="sidebarToggle">
                     <i class="fas fa-bars"></i>
                 </button>
-                <img src="/assets/img/logo.png" alt="MinhGiangPC.Com" width="200">
+                <img src="/assets/media/logo.png" alt="MinhGiangPC.Com" width="200">
             </div>
             <div class="d-flex align-items-center">
                 <div class="dropdown">

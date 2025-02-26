@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Feb 26, 2025 at 05:51 PM
+-- Generation Time: Feb 26, 2025 at 07:39 PM
 -- Server version: 8.0.30
 -- PHP Version: 8.3.11
 
@@ -35,6 +35,7 @@ CREATE TABLE `yeu_cau_sua_chua` (
   `so_dien_thoai` varchar(20) NOT NULL,
   `dia_chi` text NOT NULL,
   `mo_ta` text NOT NULL,
+  `media` varchar(255) DEFAULT NULL,
   `thoi_gian_hen` datetime DEFAULT NULL,
   `nguoi_xu_ly` int DEFAULT NULL,
   `trang_thai` tinyint DEFAULT '0',
@@ -46,8 +47,10 @@ CREATE TABLE `yeu_cau_sua_chua` (
 -- Dumping data for table `yeu_cau_sua_chua`
 --
 
-INSERT INTO `yeu_cau_sua_chua` (`id`, `ma_don`, `user_id`, `ho_ten`, `so_dien_thoai`, `dia_chi`, `mo_ta`, `thoi_gian_hen`, `nguoi_xu_ly`, `trang_thai`, `ghi_chu`, `created_at`) VALUES
-(1, 'SC2500001', 2, 'test', '0888889530', 'Tổ dân phố 5, Hoà Thuận, Quảng Hoà, Cao Bằng', 'scsacasc', NULL, NULL, 0, NULL, '2025-02-26 17:48:32');
+INSERT INTO `yeu_cau_sua_chua` (`id`, `ma_don`, `user_id`, `ho_ten`, `so_dien_thoai`, `dia_chi`, `mo_ta`, `media`, `thoi_gian_hen`, `nguoi_xu_ly`, `trang_thai`, `ghi_chu`, `created_at`) VALUES
+(1, 'SC2500001', 2, 'test', '0888889530', 'Tổ dân phố 5, Hoà Thuận, Quảng Hoà, Cao Bằng', 'scsacasc', NULL, NULL, NULL, 0, NULL, '2025-02-26 17:48:32'),
+(2, 'SC2500002', 2, '122312312', '0888889530', 'Tổ dân phố 5, Hoà Thuận, Quảng Hoà, Cao Bằng', 'test', '[\"khachhang1-20250226192908-0.png\",\"khachhang1-20250226192908-1.png\"]', '2025-02-27 02:33:00', NULL, 0, NULL, '2025-02-26 19:29:08'),
+(3, 'SC2500003', 2, 'test', '0888889530', 'Tổ dân phố 5, Hoà Thuận, Quảng Hoà, Cao Bằng', 'testgtt', '[\"khachhang1-20250226193401-0.mp4\"]', NULL, NULL, 0, NULL, '2025-02-26 19:34:01');
 
 --
 -- Triggers `yeu_cau_sua_chua`
@@ -99,7 +102,7 @@ ALTER TABLE `yeu_cau_sua_chua`
 -- AUTO_INCREMENT for table `yeu_cau_sua_chua`
 --
 ALTER TABLE `yeu_cau_sua_chua`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Constraints for dumped tables

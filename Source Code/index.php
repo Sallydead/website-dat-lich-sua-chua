@@ -34,30 +34,39 @@ require_once 'include/layout/header.php';
     <div class="container-fluid px-4">
         <h2 class="text-center mb-5">Dịch vụ của chúng tôi</h2>
         <div class="row g-4">
-            <div class="col-md-4">
+            <div class="col-md-3">
                 <div class="card h-100 border-0 shadow-sm">
                     <div class="card-body text-center">
-                        <i class="fas fa-laptop fa-3x text-primary mb-3"></i>
-                        <h4>Sửa chữa laptop</h4>
-                        <p>Dịch vụ sửa chữa laptop chuyên nghiệp, uy tín với đội ngũ kỹ thuật viên giàu kinh nghiệm</p>
+                        <i class="fas fa-shopping-cart fa-3x text-primary mb-3"></i>
+                        <h4>Mua bán thiết bị</h4>
+                        <p>Cung cấp các thiết bị máy tính, linh kiện chính hãng với giá cả cạnh tranh và bảo hành uy tín</p>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-3">
                 <div class="card h-100 border-0 shadow-sm">
                     <div class="card-body text-center">
-                        <i class="fas fa-desktop fa-3x text-primary mb-3"></i>
+                        <i class="fas fa-tools fa-3x text-primary mb-3"></i>
                         <h4>Sửa chữa máy tính</h4>
-                        <p>Sửa chữa, bảo trì và nâng cấp máy tính để bàn với linh kiện chính hãng</p>
+                        <p>Dịch vụ sửa chữa, bảo trì máy tính, laptop chuyên nghiệp với đội ngũ kỹ thuật viên giàu kinh nghiệm</p>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-3">
                 <div class="card h-100 border-0 shadow-sm">
                     <div class="card-body text-center">
                         <i class="fas fa-network-wired fa-3x text-primary mb-3"></i>
-                        <h4>Lắp đặt mạng</h4>
-                        <p>Thi công, lắp đặt hệ thống mạng LAN, WiFi cho văn phòng và hộ gia đình</p>
+                        <h4>Thiết kế hệ thống mạng</h4>
+                        <p>Tư vấn, thiết kế và thi công hệ thống mạng LAN, WiFi cho doanh nghiệp và hộ gia đình</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body text-center">
+                        <i class="fas fa-video fa-3x text-primary mb-3"></i>
+                        <h4>Lắp đặt camera</h4>
+                        <p>Lắp đặt hệ thống camera giám sát an ninh chất lượng cao, giám sát từ xa qua điện thoại</p>
                     </div>
                 </div>
             </div>

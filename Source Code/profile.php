@@ -24,9 +24,9 @@ require_once 'include/layout/header.php';
         <div class="card">
             <div class="card-body text-center">
                 <?php if($user['avatar']): ?>
-                    <img src="/assets/img/uploads/avatars/<?php echo $user['avatar']; ?>" class="rounded-circle mb-3" style="width: 150px; height: 150px; object-fit: cover;">
+                    <img src="/assets/media/uploads/avatars/<?php echo $user['avatar']; ?>" class="rounded-circle mb-3" style="width: 150px; height: 150px; object-fit: cover;">
                 <?php else: ?>
-                    <img src="/assets/img/uploads/avatars/default.png" class="rounded-circle mb-3" style="width: 150px; height: 150px; object-fit: cover;">
+                    <img src="/assets/media/uploads/avatars/default.png" class="rounded-circle mb-3" style="width: 150px; height: 150px; object-fit: cover;">
                 <?php endif; ?>
                 <h4><?php echo $user['fullname']; ?></h4>
                 <p class="text-muted"><?php echo $user['email']; ?></p>

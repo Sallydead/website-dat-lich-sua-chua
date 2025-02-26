@@ -63,7 +63,7 @@ if(isset($_POST['update'])) {
         // Xử lý upload avatar mới
         $avatar = $user['avatar']; // Giữ nguyên avatar cũ nếu không upload mới
         if(isset($_FILES['avatar']) && $_FILES['avatar']['error'] == 0) {
-            $target_dir = $_SERVER['DOCUMENT_ROOT'] . "/assets/img/uploads/avatars/";
+            $target_dir = $_SERVER['DOCUMENT_ROOT'] . "/assets/media/uploads/avatars/";
             if(!file_exists($target_dir)) {
                 mkdir($target_dir, 0777, true);
             }
@@ -74,8 +74,8 @@ if(isset($_POST['update'])) {
             
             if(move_uploaded_file($_FILES['avatar']['tmp_name'], $target_file)) {
                 // Xóa avatar cũ nếu có
-                if($avatar && file_exists($_SERVER['DOCUMENT_ROOT'] . "/assets/img/uploads/avatars/" . $avatar)) {
-                    unlink($_SERVER['DOCUMENT_ROOT'] . "/assets/img/uploads/avatars/" . $avatar);
+                if($avatar && file_exists($_SERVER['DOCUMENT_ROOT'] . "/assets/media/uploads/avatars/" . $avatar)) {
+                    unlink($_SERVER['DOCUMENT_ROOT'] . "/assets/media/uploads/avatars/" . $avatar);
                 }
                 $avatar = $file_name; // Chỉ lưu tên file
             }
@@ -178,7 +178,7 @@ require_once '../../include/layout/dashboard_header.php';
                                     <label class="form-label">Ảnh đại diện</label>
                                     <?php if($user['avatar']): ?>
                                         <div class="mb-2">
-                                            <img src="/assets/img/uploads/avatars/<?php echo $user['avatar']; ?>" class="rounded" style="max-width: 150px;">
+                                            <img src="/assets/media/uploads/avatars/<?php echo $user['avatar']; ?>" class="rounded" style="max-width: 150px;">
                                         </div>
                                     <?php endif; ?>
                                     <input type="file" class="form-control" name="avatar" accept="image/*" onchange="previewImage(this);">

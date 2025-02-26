@@ -18,7 +18,7 @@ if(isset($_POST['register'])) {
     // Xử lý upload avatar
     $avatar = '';
     if(isset($_FILES['avatar']) && $_FILES['avatar']['error'] == 0) {
-        $target_dir = $_SERVER['DOCUMENT_ROOT'] . "/assets/img/uploads/avatars/";
+        $target_dir = $_SERVER['DOCUMENT_ROOT'] . "/assets/media/uploads/avatars/";
         if(!file_exists($target_dir)) {
             mkdir($target_dir, 0777, true);
         }

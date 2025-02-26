@@ -64,7 +64,7 @@ require_once 'include/layout/header.php';
                     <?php if(isset($yeu_cau)): ?>
                         <div class="border rounded p-3 mb-4">
                             <div class="d-flex justify-content-between align-items-center mb-3">
-                                <h4 class="mb-0">Mã đơn: <?php echo $yeu_cau['id']; ?></h4>
+                                <h4 class="mb-0">Mã đơn: <?php echo $yeu_cau['ma_don']; ?></h4>
                                 <span class="badge bg-<?php echo get_status_color($yeu_cau['trang_thai']); ?>">
                                     <?php echo get_status_text($yeu_cau['trang_thai']); ?>
                                 </span>
@@ -96,6 +96,42 @@ require_once 'include/layout/header.php';
                                 <div class="mt-3">
                                     <p><strong>Ghi chú:</strong></p>
                                     <p><?php echo nl2br($yeu_cau['ghi_chu']); ?></p>
+                                </div>
+                            <?php endif; ?>
+                            
+                            <?php if($yeu_cau['media']): ?>
+                                <div class="mt-3">
+                                    <p><strong>Hình ảnh/Video đính kèm:</strong></p>
+                                    <div class="row g-2">
+                                        <?php 
+                                        $media_files = json_decode($yeu_cau['media'], true);
+                                        foreach($media_files as $file):
+                                            $file_extension = strtolower(pathinfo($file, PATHINFO_EXTENSION));
+                                            $is_image = in_array($file_extension, ['jpg', 'jpeg', 'png', 'gif']);
+                                        ?>
+                                            <div class="col-md-3 text-center">
+                                                <?php if($is_image): ?>
+                                                    <a href="/assets/media/uploads/yeu-cau-sua-chua/<?php echo $file; ?>" target="_blank">
+                                                        <img src="/assets/media/uploads/yeu-cau-sua-chua/<?php echo $file; ?>" 
+                                                             class="img-thumbnail" 
+                                                             style="width: 100%; height: 150px; object-fit: cover;">
+                                                    </a>
+                                                <?php else: ?>
+                                                    <div>
+                                                        <video controls class="img-thumbnail" style="width: 100%; height: 150px; object-fit: cover;">
+                                                            <source src="/assets/media/uploads/yeu-cau-sua-chua/<?php echo $file; ?>" type="video/<?php echo $file_extension; ?>">
+                                                            Trình duyệt của bạn không hỗ trợ video này.
+                                                        </video>
+                                                        <div class="mt-2">
+                                                            <a href="/assets/media/uploads/yeu-cau-sua-chua/<?php echo $file; ?>" target="_blank" style="color: #ffffff" class="btn btn-sm btn-primary">
+                                                                <i class="fas fa-eye"></i> Xem video
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                <?php endif; ?>
+                                            </div>
+                                        <?php endforeach; ?>
+                                    </div>
                                 </div>
                             <?php endif; ?>
                             
@@ -131,7 +167,7 @@ require_once 'include/layout/header.php';
                                                 </span>
                                             </td>
                                             <td>
-                                                <a href="?ma_don=<?php echo $yc['id']; ?>" class="btn btn-sm btn-info">
+                                                <a href="?ma_don=<?php echo $yc['ma_don']; ?>" class="btn btn-sm btn-info">
                                                     <i class="fas fa-eye"></i>
                                                 </a>
                                             </td>
