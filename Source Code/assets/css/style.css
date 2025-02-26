@@ -1,0 +1,196 @@
+/* Reset & Common styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f8f9fa;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden; /* Chống scroll ngang */
+}
+
+/* Links */
+a {
+    text-decoration: none !important; /* Xoá gạch chân */
+    color: inherit;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Layout */
+.navbar-brand {
+    font-weight: bold;
+}
+
+.main-content {
+    flex: 1;
+    padding: 20px 0;
+}
+
+/* Tables */
+.table-responsive {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Forms */
+.form-control:focus {
+    box-shadow: none;
+    border-color: #80bdff;
+}
+
+/* Cards */
+.card {
+    border: none;
+    box-shadow: 0 0 10px rgba(0,0,0,.05);
+}
+
+/* Footer styles */
+.footer {
+    background: #343a40;
+    color: #fff;
+    padding: 3rem 0;
+}
+
+.footer a {
+    color: #fff;
+}
+
+.footer a:hover {
+    color: #0d6efd;
+}
+
+.footer hr {
+    border-color: rgba(255,255,255,0.1);
+}
+
+.footer .social-links a {
+    font-size: 1.5rem;
+    margin-right: 1rem;
+}
+
+.footer .social-links a:hover {
+    opacity: 0.8;
+}
+
+/* Utilities */
+.text-truncate-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .container-fluid {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}
+
+/* Thêm một số kiểu dáng cơ bản khác */
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    padding: 0;
+}
+
+p {
+    margin: 0;
+    padding: 0;
+    line-height: 1.5; /* Tăng khoảng cách giữa các dòng */
+}
+
+.container-fluid {
+    max-width: 1200px; /* Giới hạn chiều rộng tối đa cho container */
+    margin: auto; /* Căn giữa container */
+}
+
+/* Hero section */
+.hero {
+    background: linear-gradient(45deg, #0d6efd, #0a58ca);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: url('/assets/img/pattern.png');
+    opacity: 0.1;
+}
+
+.hero .container-fluid {
+    position: relative;
+    z-index: 1;
+}
+
+/* Services */
+.services .card {
+    transition: transform 0.3s;
+}
+
+.services .card:hover {
+    transform: translateY(-5px);
+}
+
+.services .card i {
+    transition: transform 0.3s;
+}
+
+.services .card:hover i {
+    transform: scale(1.1);
+}
+
+/* Features */
+.features i {
+    background: rgba(13, 110, 253, 0.1);
+    padding: 20px;
+    border-radius: 50%;
+    transition: transform 0.3s;
+}
+
+.features div:hover i {
+    transform: rotateY(180deg);
+}
+
+/* Contact form */
+.contact .form-control {
+    border: 1px solid #dee2e6;
+    padding: 0.75rem;
+}
+
+.contact .form-control:focus {
+    border-color: #0d6efd;
+    box-shadow: none;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero {
+        text-align: center;
+    }
+    
+    .hero img {
+        margin-top: 2rem;
+    }
+    
+    .contact {
+        text-align: center;
+    }
+    
+    .contact iframe {
+        margin-top: 2rem;
+    }
+}

@@ -1,0 +1,15 @@
+feat:: Thêm tính năng mới.
+
+fix:: Sửa lỗi.
+
+refactor:: Tái cấu trúc code mà không thay đổi chức năng.
+
+docs:: Thay đổi tài liệu (ví dụ: README, comments trong code).
+
+style:: Thay đổi liên quan đến định dạng code (ví dụ: thụt lề, dấu phẩy).
+
+test:: Thêm hoặc sửa đổi test cases.
+
+chore:: Các thay đổi liên quan đến công việc phụ trợ (ví dụ: cập nhật cấu hình, dependency).
+
+perf:: Cải thiện hiệu suất.
