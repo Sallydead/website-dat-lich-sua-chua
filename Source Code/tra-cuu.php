@@ -159,7 +159,7 @@ require_once 'include/layout/header.php';
                                 <tbody>
                                     <?php foreach($yeu_cau_list as $yc): ?>
                                         <tr>
-                                            <td><?php echo $yc['id']; ?></td>
+                                            <td><?php echo $yc['ma_don']; ?></td>
                                             <td><?php echo date('d/m/Y H:i', strtotime($yc['created_at'])); ?></td>
                                             <td>
                                                 <span class="badge bg-<?php echo get_status_color($yc['trang_thai']); ?>">

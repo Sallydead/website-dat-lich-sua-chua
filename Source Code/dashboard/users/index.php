@@ -59,7 +59,7 @@ $limit = 10;
 $offset = ($page - 1) * $limit;
 
 // Xây dựng câu query tìm kiếm
-$where = "WHERE 1=1";
+$where = "WHERE u.role > 0"; // Mặc định chỉ lấy nhân viên
 $params = [];
 
 if($search) {
@@ -69,8 +69,8 @@ if($search) {
 }
 
 if($role_filter !== '') {
-    $where .= " AND u.role = ?";
-    $params[] = $role_filter;
+    $where = "WHERE u.role = ?"; // Bỏ điều kiện role > 0 nếu có filter
+    $params = [$role_filter];
 }
 
 // Đếm tổng số bản ghi
