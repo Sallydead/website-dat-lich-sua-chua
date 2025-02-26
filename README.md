@@ -54,21 +54,21 @@ Website quản lý yêu cầu sửa chữa máy tính được phát triển cho
 1. Clone repository
 ```bash
 git clone https://github.com/Sallydead/website-dat-lich-sua-chua.git
-cd repair-management
+cd website-dat-lich-sua-chua
 ```
 
 2. Tạo database và import cấu trúc
 ```bash
-Nhập file database.sql vào database
+Nhập file database.sql vào database mysql
 ```
 
 3. Cấu hình kết nối database
 ```php
 // include/config.php
-$db_host = 'localhost';
-$db_name = 'database_name';
-$db_user = 'username';
-$db_pass = 'password';
+$host = 'localhost';
+$dbname = 'database_name';
+$username = 'username';
+$password = 'password';
 ```
 
 ## Công nghệ sử dụng
