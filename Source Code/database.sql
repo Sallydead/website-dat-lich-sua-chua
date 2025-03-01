@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Feb 26, 2025 at 07:39 PM
+-- Generation Time: Mar 01, 2025 at 01:57 PM
 -- Server version: 8.0.30
 -- PHP Version: 8.3.11
 
@@ -29,7 +29,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `yeu_cau_sua_chua` (
   `id` int NOT NULL,
-  `ma_don` varchar(10) DEFAULT NULL,
+  `ma_don` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
   `user_id` int DEFAULT NULL,
   `ho_ten` varchar(100) NOT NULL,
   `so_dien_thoai` varchar(20) NOT NULL,
@@ -40,42 +40,55 @@ CREATE TABLE `yeu_cau_sua_chua` (
   `nguoi_xu_ly` int DEFAULT NULL,
   `trang_thai` tinyint DEFAULT '0',
   `ghi_chu` text,
-  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `update_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `chi_phi` decimal(10,0) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `yeu_cau_sua_chua`
 --
 
-INSERT INTO `yeu_cau_sua_chua` (`id`, `ma_don`, `user_id`, `ho_ten`, `so_dien_thoai`, `dia_chi`, `mo_ta`, `media`, `thoi_gian_hen`, `nguoi_xu_ly`, `trang_thai`, `ghi_chu`, `created_at`) VALUES
-(1, 'SC2500001', 2, 'test', '0888889530', 'Tổ dân phố 5, Hoà Thuận, Quảng Hoà, Cao Bằng', 'scsacasc', NULL, NULL, NULL, 0, NULL, '2025-02-26 17:48:32'),
-(2, 'SC2500002', 2, '122312312', '0888889530', 'Tổ dân phố 5, Hoà Thuận, Quảng Hoà, Cao Bằng', 'test', '[\"khachhang1-20250226192908-0.png\",\"khachhang1-20250226192908-1.png\"]', '2025-02-27 02:33:00', NULL, 0, NULL, '2025-02-26 19:29:08'),
-(3, 'SC2500003', 2, 'test', '0888889530', 'Tổ dân phố 5, Hoà Thuận, Quảng Hoà, Cao Bằng', 'testgtt', '[\"khachhang1-20250226193401-0.mp4\"]', NULL, NULL, 0, NULL, '2025-02-26 19:34:01');
+INSERT INTO `yeu_cau_sua_chua` (`id`, `ma_don`, `user_id`, `ho_ten`, `so_dien_thoai`, `dia_chi`, `mo_ta`, `media`, `thoi_gian_hen`, `nguoi_xu_ly`, `trang_thai`, `ghi_chu`, `created_at`, `update_at`, `chi_phi`) VALUES
+(1, 'SC2500001', 2, 'test', '0888889530', 'Tổ dân phố 5, Hoà Thuận, Quảng Hoà, Cao Bằng', 'scsacasc', NULL, NULL, NULL, 0, NULL, '2025-02-26 17:48:32', '2025-03-01 13:49:34', NULL),
+(2, 'SC2500002', 2, '122312312', '0888889530', 'Tổ dân phố 5, Hoà Thuận, Quảng Hoà, Cao Bằng', 'test', '[\"khachhang1-20250226192908-0.png\",\"khachhang1-20250226192908-1.png\"]', '2025-02-27 02:33:00', NULL, 1, NULL, '2025-02-26 19:29:08', '2025-03-01 13:49:34', NULL),
+(3, 'SC2500003', 2, 'test', '0888889530', 'Tổ dân phố 5, Hoà Thuận, Quảng Hoà, Cao Bằng', 'testgtt', '[\"khachhang1-20250226193401-0.mp4\"]', NULL, NULL, 2, NULL, '2025-02-26 19:34:01', '2025-03-01 13:49:34', NULL),
+(4, 'SC2500004', 2, 'test', '0888889530', 'Tổ dân phố 5, Hoà Thuận, Quảng Hoà, Cao Bằng', 'abc', NULL, NULL, NULL, 3, NULL, '2025-02-26 19:50:16', '2025-03-01 13:49:34', NULL),
+(5, 'SC2500005', 2, 'test', '0888889530', 'Tổ dân phố 5, Hoà Thuận, Quảng Hoà, Cao Bằng', 'xxx', NULL, NULL, NULL, 4, NULL, '2025-02-26 19:50:23', '2025-03-01 13:49:34', NULL),
+(6, 'YC270225001365', 1, 'Đàm Minh Giang', '0333332444', 'Tổ dân phố 5, Hoà Thuận, Quảng Hoà, Cao Bằng', '1324e43346', NULL, NULL, 1, 3, 'test', '2025-02-28 20:42:27', '2025-03-01 13:49:34', '500000');
 
 --
 -- Triggers `yeu_cau_sua_chua`
 --
 DELIMITER $$
 CREATE TRIGGER `before_yeu_cau_insert` BEFORE INSERT ON `yeu_cau_sua_chua` FOR EACH ROW BEGIN
-    DECLARE prefix VARCHAR(4);
-    DECLARE year_suffix CHAR(2);
+    DECLARE prefix VARCHAR(2);
+    DECLARE date_part CHAR(6);
     DECLARE sequence INT;
+    DECLARE random_part INT;
     
-    -- Tạo prefix SC + năm hiện tại (2 số cuối)
-    SET prefix = 'SC';
-    SET year_suffix = RIGHT(YEAR(CURRENT_DATE), 2);
-    
-    -- Lấy số sequence cuối cùng trong ngày
-    SELECT IFNULL(MAX(CAST(RIGHT(ma_don, 5) AS UNSIGNED)), 0) + 1
+    SET prefix = 'YC';
+    SET date_part = DATE_FORMAT(CURRENT_DATE, '%d%m%y');
+
+    -- Lấy số thứ tự trong ngày, giới hạn 999, nếu quá thì reset về 1
+    SELECT IFNULL(MAX(CAST(SUBSTRING(ma_don, 9, 3) AS UNSIGNED)), 0) + 1
     INTO sequence
     FROM yeu_cau_sua_chua
-    WHERE ma_don LIKE CONCAT(prefix, year_suffix, '%');
-    
-    -- Tạo mã đơn mới: SCyy + số sequence 5 chữ số
+    WHERE ma_don LIKE CONCAT(prefix, date_part, '%');
+
+    IF sequence > 999 THEN
+        SET sequence = 1;
+    END IF;
+
+    -- Sinh số ngẫu nhiên từ 100-999
+    SET random_part = FLOOR(RAND() * 900) + 100;
+
+    -- Tạo mã YC + ddMMyy + 3 số thứ tự + 3 số ngẫu nhiên
     SET NEW.ma_don = CONCAT(
         prefix,
-        year_suffix,
-        LPAD(sequence, 5, '0')
+        date_part,
+        LPAD(sequence, 3, '0'),
+        random_part
     );
 END
 $$
@@ -102,7 +115,7 @@ ALTER TABLE `yeu_cau_sua_chua`
 -- AUTO_INCREMENT for table `yeu_cau_sua_chua`
 --
 ALTER TABLE `yeu_cau_sua_chua`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Constraints for dumped tables

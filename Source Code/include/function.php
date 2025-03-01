@@ -27,3 +27,28 @@ function get_status_text($status) {
         default: return 'Không xác định';
     }
 } 
+
+// Định nghĩa role names và colors cho toàn hệ thống
+$GLOBALS['role_names'] = [
+    1 => 'Admin',
+    2 => 'CSKH',
+    3 => 'Kỹ thuật viên',
+    0 => 'Khách hàng'
+];
+
+$GLOBALS['role_colors'] = [
+    1 => 'danger',    // Admin - đỏ
+    2 => 'info',      // CSKH - xanh dương
+    3 => 'success',   // KTV - xanh lá
+    0 => 'secondary'  // Khách hàng - xám
+];
+
+// Hàm helper để lấy tên role
+function getRoleName($role_id) {
+    return $GLOBALS['role_names'][$role_id] ?? 'Unknown';
+}
+
+// Hàm helper để lấy màu role
+function getRoleColor($role_id) {
+    return $GLOBALS['role_colors'][$role_id] ?? 'secondary';
+} 
