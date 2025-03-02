@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Mar 01, 2025 at 01:57 PM
+-- Generation Time: Mar 01, 2025 at 02:56 PM
 -- Server version: 8.0.30
 -- PHP Version: 8.3.11
 
@@ -24,38 +24,60 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `id` int NOT NULL,
+  `username` varchar(50) COLLATE utf8mb4_vietnamese_ci NOT NULL,
+  `password` varchar(255) COLLATE utf8mb4_vietnamese_ci NOT NULL,
+  `email` varchar(100) COLLATE utf8mb4_vietnamese_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `update_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `role` tinyint NOT NULL DEFAULT '0' COMMENT 'Chức vụ (0 khách hàng, 1 admin, 2 cskh, 3 ktv)'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_vietnamese_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user_infos`
+--
+
+CREATE TABLE `user_infos` (
+  `id` int NOT NULL,
+  `user_id` int NOT NULL,
+  `fullname` varchar(100) COLLATE utf8mb4_vietnamese_ci DEFAULT NULL,
+  `phone` varchar(20) COLLATE utf8mb4_vietnamese_ci DEFAULT NULL,
+  `address` text COLLATE utf8mb4_vietnamese_ci,
+  `gender` enum('nam','nu') COLLATE utf8mb4_vietnamese_ci DEFAULT NULL,
+  `avatar` varchar(255) COLLATE utf8mb4_vietnamese_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `update_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_vietnamese_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `yeu_cau_sua_chua`
 --
 
 CREATE TABLE `yeu_cau_sua_chua` (
   `id` int NOT NULL,
-  `ma_don` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `ma_don` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_vietnamese_ci DEFAULT NULL,
   `user_id` int DEFAULT NULL,
-  `ho_ten` varchar(100) NOT NULL,
-  `so_dien_thoai` varchar(20) NOT NULL,
-  `dia_chi` text NOT NULL,
-  `mo_ta` text NOT NULL,
-  `media` varchar(255) DEFAULT NULL,
+  `ho_ten` varchar(100) COLLATE utf8mb4_vietnamese_ci NOT NULL,
+  `so_dien_thoai` varchar(20) COLLATE utf8mb4_vietnamese_ci NOT NULL,
+  `dia_chi` text COLLATE utf8mb4_vietnamese_ci NOT NULL,
+  `mo_ta` text COLLATE utf8mb4_vietnamese_ci NOT NULL,
+  `media` varchar(255) COLLATE utf8mb4_vietnamese_ci DEFAULT NULL,
   `thoi_gian_hen` datetime DEFAULT NULL,
   `nguoi_xu_ly` int DEFAULT NULL,
   `trang_thai` tinyint DEFAULT '0',
-  `ghi_chu` text,
+  `ghi_chu` text COLLATE utf8mb4_vietnamese_ci,
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `update_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `chi_phi` decimal(10,0) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
---
--- Dumping data for table `yeu_cau_sua_chua`
---
-
-INSERT INTO `yeu_cau_sua_chua` (`id`, `ma_don`, `user_id`, `ho_ten`, `so_dien_thoai`, `dia_chi`, `mo_ta`, `media`, `thoi_gian_hen`, `nguoi_xu_ly`, `trang_thai`, `ghi_chu`, `created_at`, `update_at`, `chi_phi`) VALUES
-(1, 'SC2500001', 2, 'test', '0888889530', 'Tổ dân phố 5, Hoà Thuận, Quảng Hoà, Cao Bằng', 'scsacasc', NULL, NULL, NULL, 0, NULL, '2025-02-26 17:48:32', '2025-03-01 13:49:34', NULL),
-(2, 'SC2500002', 2, '122312312', '0888889530', 'Tổ dân phố 5, Hoà Thuận, Quảng Hoà, Cao Bằng', 'test', '[\"khachhang1-20250226192908-0.png\",\"khachhang1-20250226192908-1.png\"]', '2025-02-27 02:33:00', NULL, 1, NULL, '2025-02-26 19:29:08', '2025-03-01 13:49:34', NULL),
-(3, 'SC2500003', 2, 'test', '0888889530', 'Tổ dân phố 5, Hoà Thuận, Quảng Hoà, Cao Bằng', 'testgtt', '[\"khachhang1-20250226193401-0.mp4\"]', NULL, NULL, 2, NULL, '2025-02-26 19:34:01', '2025-03-01 13:49:34', NULL),
-(4, 'SC2500004', 2, 'test', '0888889530', 'Tổ dân phố 5, Hoà Thuận, Quảng Hoà, Cao Bằng', 'abc', NULL, NULL, NULL, 3, NULL, '2025-02-26 19:50:16', '2025-03-01 13:49:34', NULL),
-(5, 'SC2500005', 2, 'test', '0888889530', 'Tổ dân phố 5, Hoà Thuận, Quảng Hoà, Cao Bằng', 'xxx', NULL, NULL, NULL, 4, NULL, '2025-02-26 19:50:23', '2025-03-01 13:49:34', NULL),
-(6, 'YC270225001365', 1, 'Đàm Minh Giang', '0333332444', 'Tổ dân phố 5, Hoà Thuận, Quảng Hoà, Cao Bằng', '1324e43346', NULL, NULL, 1, 3, 'test', '2025-02-28 20:42:27', '2025-03-01 13:49:34', '500000');
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_vietnamese_ci;
 
 --
 -- Triggers `yeu_cau_sua_chua`
@@ -99,6 +121,20 @@ DELIMITER ;
 --
 
 --
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `username` (`username`);
+
+--
+-- Indexes for table `user_infos`
+--
+ALTER TABLE `user_infos`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `user_id` (`user_id`);
+
+--
 -- Indexes for table `yeu_cau_sua_chua`
 --
 ALTER TABLE `yeu_cau_sua_chua`
@@ -112,14 +148,32 @@ ALTER TABLE `yeu_cau_sua_chua`
 --
 
 --
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `user_infos`
+--
+ALTER TABLE `user_infos`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `yeu_cau_sua_chua`
 --
 ALTER TABLE `yeu_cau_sua_chua`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
 
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `user_infos`
+--
+ALTER TABLE `user_infos`
+  ADD CONSTRAINT `user_infos_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `yeu_cau_sua_chua`
