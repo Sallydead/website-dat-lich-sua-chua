@@ -25,7 +25,7 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
+                <ul class="navbar-nav ms-auto" style="display: flex;align-content: space-around;justify-content: space-between;align-items: flex-end;">
                     <?php if(isset($_SESSION['user_id'])): ?>
                     <li class="nav-item">
                         <a class="nav-link" href="/index.php">
@@ -68,6 +68,9 @@
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="/profile.php">
                                 <i class="fas fa-user"></i> Trang cá nhân
+                            </a>
+                            <a class="dropdown-item" href="/dat-yeu-cau.php">
+                                <i class="fas fa-tools me-2"></i> Đặt yêu cầu
                             </a>
                             <a class="dropdown-item" href="/tra-cuu.php">
                                 <i class="fas fa-search"></i> Tra cứu yêu cầu
