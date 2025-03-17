@@ -1,6 +1,6 @@
 # Website Quản lý Yêu cầu Sửa chữa Máy Tính
 
-Website quản lý yêu cầu sửa chữa máy tính được phát triển cho cửa hàng sửa chữa máy tính minhgiangpc.com. Website cho phép khách hàng dễ dàng gửi yêu cầu sửa chữa trực tuyến và theo dõi tiến độ xử lý. Đồng thời cung cấp công cụ quản lý hiệu quả cho nhân viên.
+Website quản lý yêu cầu sửa chữa máy tính được phát triển cho cửa hàng sửa chữa máy tính Vũ Chí Linh Computer. Website cho phép khách hàng dễ dàng gửi yêu cầu sửa chữa trực tuyến và theo dõi tiến độ xử lý. Đồng thời cung cấp công cụ quản lý hiệu quả cho nhân viên.
 
 ## Tính năng nổi bật
 
