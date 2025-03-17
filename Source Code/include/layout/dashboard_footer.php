@@ -8,9 +8,7 @@
                         &copy; <?php echo date('Y'); ?> Vũ Chí Linh Computer
                     </div>
                     <div class="text-muted">
-                        <a href="#" class="text-muted text-decoration-none">Điều khoản</a>
-                        <span class="mx-2">|</span>
-                        <a href="#" class="text-muted text-decoration-none">Chính sách</a>
+                        Design by <a href="https://github.com/Sallydead" class="text-muted text-decoration-none">Vũ Chí Linh</a>
                     </div>
                 </div>
             </div>

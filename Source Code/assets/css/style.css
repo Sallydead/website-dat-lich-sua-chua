@@ -115,7 +115,7 @@ p {
 
 /* Hero section */
 .hero {
-    background: linear-gradient(45deg, #0d6efd, #0a58ca);
+    background: linear-gradient(45deg, #007bff, #0056b3);
     position: relative;
     overflow: hidden;
 }
@@ -138,7 +138,7 @@ p {
 
 /* Services */
 .services .card {
-    transition: transform 0.3s;
+    transition: all 0.3s;
 }
 
 .services .card:hover {
@@ -193,4 +193,16 @@ p {
     .contact iframe {
         margin-top: 2rem;
     }
+}
+
+/* Process */
+.process .badge {
+    width: 25px;
+    height: 25px;
+}
+
+/* Contact */
+.contact iframe {
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
 }

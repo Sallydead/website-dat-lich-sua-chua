@@ -2,12 +2,6 @@
 session_start();
 require_once 'include/function.php';
 
-// Kiểm tra đăng nhập
-if(!isset($_SESSION['user_id'])) {
-    header("Location: login.php");
-    exit();
-}
-
 $page_title = "Trang chủ";
 
 require_once 'include/layout/header.php';
@@ -36,76 +30,113 @@ require_once 'include/layout/header.php';
         </div>
     </div>
 </div>
+
 <div class="main-content">
     <div class="container-fluid px-4">
 
-<?php if(in_array($_SESSION['role'], [1,2])): // Chỉ admin và CSKH xem thống kê ?>
-<!-- Dịch vụ -->
-<section class="services py-5">
-    <div class="container-fluid px-4">
-        <h2 class="text-center mb-5">Thống kê dịch vụ</h2>
-        <div class="row g-4">
-            <!-- ... các card thống kê ... -->
-        </div>
-    </div>
-</section>
-
-<!-- Cam kết -->
-<section class="features bg-light py-5">
-    <div class="container-fluid px-4">
-        <h2 class="text-center mb-5">Thống kê chi tiết</h2>
-        <div class="row g-4">
-            <!-- ... các thống kê chi tiết ... -->
-        </div>
-    </div>
-</section>
-<?php endif; ?>
-
-<?php if($_SESSION['role'] == 3): // KTV chỉ xem phân công ?>
-<!-- Phân công công việc -->
-<section class="py-5">
-    <div class="container-fluid px-4">
-        <h2 class="text-center mb-5">Công việc được phân công</h2>
-        <div class="row">
-            <div class="col-12">
-                <div class="card">
-                    <div class="card-body">
-                        <!-- Hiển thị danh sách công việc -->
+        <!-- Dịch vụ -->
+        <section class="services py-5">
+            <h2 class="text-center mb-5 reveal">Dịch vụ của chúng tôi</h2>
+            <div class="row g-4">
+                <div class="col-md-4 reveal" style="transition-delay: 0.1s;">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body text-center">
+                            <div class="mb-4">
+                                <i class="fas fa-laptop fa-3x text-primary"></i>
+                            </div>
+                            <h5 class="card-title">Sửa chữa laptop</h5>
+                            <p class="card-text text-muted">Dịch vụ sửa chữa, thay thế linh kiện laptop chuyên nghiệp</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 reveal" style="transition-delay: 0.3s;">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body text-center">
+                            <div class="mb-4">
+                                <i class="fas fa-desktop fa-3x text-success"></i>
+                            </div>
+                            <h5 class="card-title">Sửa chữa máy tính</h5>
+                            <p class="card-text text-muted">Sửa chữa, nâng cấp và bảo trì máy tính để bàn tận nơi</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 reveal" style="transition-delay: 0.5s;">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body text-center">
+                            <div class="mb-4">
+                                <i class="fas fa-microchip fa-3x text-info"></i>
+                            </div>
+                            <h5 class="card-title">Thay thế linh kiện</h5>
+                            <p class="card-text text-muted">Cung cấp và thay thế linh kiện chính hãng, bảo hành dài hạn</p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-</section>
-<?php endif; ?>
+        </section>
 
-<!-- Liên hệ -->
-<section class="contact py-5">
-    <div class="container-fluid px-4">
-        <div class="row align-items-center">
-            <div class="col-md-6">
-                <h2 class="mb-4">Liên hệ với chúng tôi</h2>
-                <p class="mb-4">Hãy để lại thông tin, chúng tôi sẽ liên hệ với bạn sớm nhất</p>
-                <form>
-                    <div class="mb-3">
-                        <input type="text" class="form-control" placeholder="Họ và tên">
+        <!-- Liên hệ -->
+        <section class="contact py-5 bg-light">
+            <div class="container-fluid px-4">
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <h2 class="mb-4">Liên hệ với chúng tôi</h2>
+                        <div class="mb-4">
+                            <div class="d-flex mb-3">
+                                <div class="flex-shrink-0">
+                                    <i class="fas fa-map-marker-alt fa-fw text-primary"></i>
+                                </div>
+                                <div class="ms-3">
+                                    <h5 class="mb-1">Địa chỉ</h5>
+                                    <p class="mb-0">Số 298 Đường Lê Thanh Nghị, Thành phố Bắc Giang</p>
+                                </div>
+                            </div>
+                            <div class="d-flex mb-3">
+                                <div class="flex-shrink-0">
+                                    <i class="fas fa-phone fa-fw text-primary"></i>
+                                </div>
+                                <div class="ms-3">
+                                    <h5 class="mb-1">Hotline</h5>
+                                    <p class="mb-0">0123456789</p>
+                                </div>
+                            </div>
+                            <div class="d-flex">
+                                <div class="flex-shrink-0">
+                                    <i class="fas fa-envelope fa-fw text-primary"></i>
+                                </div>
+                                <div class="ms-3">
+                                    <h5 class="mb-1">Email</h5>
+                                    <p class="mb-0">luvtinno123@gmail.com</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="mb-3">
-                        <input type="tel" class="form-control" placeholder="Số điện thoại">
+                    <div class="col-md-6">
+                        <div class="ratio ratio-4x3">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3371.9072569828018!2d105.81959267471234!3d20.94934999050235!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135add7a98d2c1d%3A0xe60529400caa5c57!2zVHLGsOG7nW5nIENhbyDEkOG6s25nIEPDtG5nIE5naOG7hyBCw6FjaCBLaG9hIEjDoCBO4buZaSBD4bufIFPhu58gVGhhbmggVHLDrA!5e1!3m2!1svi!2s!4v1740591062734!5m2!1svi!2s" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                        </div>
                     </div>
-                    <div class="mb-3">
-                        <textarea class="form-control" rows="3" placeholder="Nội dung"></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Gửi tin nhắn</button>
-                </form>
-            </div>
-            <div class="col-md-6">
-                <div class="ratio ratio-16x9">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3371.9072569828018!2d105.81959267471234!3d20.94934999050235!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135add7a98d2c1d%3A0xe60529400caa5c57!2zVHLGsOG7nW5nIENhbyDEkOG6s25nIEPDtG5nIE5naOG7hyBCw6FjaCBLaG9hIEjDoCBO4buZaSBD4bufIFPhu58gVGhhbmggVHLDrA!5e1!3m2!1svi!2s!4v1740591062734!5m2!1svi!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
             </div>
-        </div>
-    </div>
-</section>
+        </section>
+
+<!-- Script cho hiệu ứng scroll reveal -->
+<script>
+window.addEventListener('scroll', reveal);
+window.addEventListener('load', reveal);
+
+function reveal() {
+    var reveals = document.querySelectorAll('.reveal');
+    
+    for(var i = 0; i < reveals.length; i++) {
+        var windowHeight = window.innerHeight;
+        var revealTop = reveals[i].getBoundingClientRect().top;
+        var revealPoint = 150;
+        
+        if(revealTop < windowHeight - revealPoint) {
+            reveals[i].classList.add('active');
+        }
+    }
+}
+</script>
 
 <?php require_once 'include/layout/footer.php'; ?> 
