@@ -1,0 +1,51 @@
+@startuml
+
+entity "Tài khoản" as TaiKhoan {
+    +TenDangNhap: String
+    +MatKhau: String
+    +PhanQuyen: Enum
+}
+
+entity "Khách hàng" as KhachHang {
+    +MaKH: String
+    +HoTen: String
+    +Email: String
+    +SDT: String
+}
+
+entity "Nhân viên" as NhanVien {
+    +MaNV: String
+    +ChucVu: Enum
+}
+
+entity "Yêu cầu sửa chữa" as YeuCauSuaChua {
+    +MaYeuCau: String
+    +MoTa: String
+    +TrangThai: Enum
+    +NgayGui: Datetime
+    +NgayHoanThanh: Datetime
+    +MaKH: String
+    +MaNV: String
+}
+
+entity "Báo cáo thống kê" as BaoCaoThongKe {
+    +ThoiGianBatDau: Datetime
+    +ThoiGianKetThuc: Datetime
+    +TongSoYeuCau: Number
+    +SoYeuCauHoanThanh: Number
+    +SoYeuCauDangXuLy: Number
+}
+
+entity "Trạng thái xử lý" as TrangThai {
+    +MaTrangThai: String
+    +TenTrangThai: String
+}
+
+TaiKhoan ||--|| KhachHang : "1 - 1"
+TaiKhoan ||--|| NhanVien : "1 - 1"
+KhachHang ||--o{ YeuCauSuaChua : "1 - *"
+NhanVien ||--o{ YeuCauSuaChua : "1 - *"
+YeuCauSuaChua ||--|| TrangThai : "1 - 1"
+BaoCaoThongKe ||--o{ YeuCauSuaChua : "1 - *"
+
+@enduml

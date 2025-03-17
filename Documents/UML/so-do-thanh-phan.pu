@@ -1,0 +1,33 @@
+@startuml
+
+package "Người dùng" {
+    [Trình duyệt Web] 
+}
+
+package "Máy chủ Web" {
+    node "Apache Server" {
+        component "Ứng dụng PHP" {
+            component "Xử lý yêu cầu" 
+            component "Giao diện người dùng"
+            component "Xử lý nghiệp vụ"
+            component "Kết nối CSDL"
+        }
+    }
+}
+
+package "Máy chủ CSDL" {
+    [MySQL Database]
+}
+
+[Trình duyệt Web] -> "Apache Server" : Gửi yêu cầu HTTP
+"Apache Server" -> "Ứng dụng PHP" : Chuyển tiếp yêu cầu
+"Ứng dụng PHP" -> "Xử lý yêu cầu" : Nhận & phân tích yêu cầu
+"Xử lý yêu cầu" -> "Xử lý nghiệp vụ" : Xử lý logic
+"Xử lý nghiệp vụ" -> "Kết nối CSDL" : Truy vấn dữ liệu
+"Kết nối CSDL" --> "MySQL Database" : Gửi truy vấn SQL
+"MySQL Database" --> "Kết nối CSDL" : Trả kết quả
+"Kết nối CSDL" --> "Xử lý nghiệp vụ" : Xử lý dữ liệu nhận được
+"Xử lý nghiệp vụ" --> "Giao diện người dùng" : Trả dữ liệu hiển thị
+"Giao diện người dùng" --> "Trình duyệt Web" : Trả về HTML
+
+@enduml

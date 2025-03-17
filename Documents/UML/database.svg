@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg
+PUBLIC "-//W3C//DTD SVG 1.1//EN"
+       "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg viewBox="106 52 866 402" width="760px" height="350px" xmlns="http://www.w3.org/2000/svg" version="1.1">
+   <line x1="202" y1="189" x2="212" y2="189" style="stroke:#0bf;stroke-width:1;"/>
+   <line x1="400" y1="196" x2="410" y2="196" style="stroke:#0bf;stroke-width:1;"/>
+   <line x1="212" y1="189" x2="400" y2="196" style="stroke:#0bf;stroke-width:1;"/>
+   <line x1="209.5" y1="189" x2="205.96446609407" y2="192.53553390593" style="stroke:#0bf;stroke-width:2;"/>
+   <line x1="209.5" y1="189" x2="205.96446609407" y2="185.46446609407" style="stroke:#0bf;stroke-width:2;"/>
+   <line x1="405" y1="196" x2="401.46446609407" y2="199.53553390593" style="stroke:#0bf;stroke-width:2;"/>
+   <line x1="405" y1="196" x2="401.46446609407" y2="192.46446609407" style="stroke:#0bf;stroke-width:2;"/>
+   <line x1="713" y1="137" x2="703" y2="137" style="stroke:#0bf;stroke-width:1;"/>
+   <line x1="501" y1="196" x2="491" y2="196" style="stroke:#0bf;stroke-width:1;"/>
+   <line x1="703" y1="137" x2="501" y2="196" style="stroke:#0bf;stroke-width:1;"/>
+   <line x1="705.5" y1="137" x2="709.03553390593" y2="140.53553390593" style="stroke:#0bf;stroke-width:2;"/>
+   <line x1="705.5" y1="137" x2="709.03553390593" y2="133.46446609407" style="stroke:#0bf;stroke-width:2;"/>
+   <line x1="496" y1="196" x2="499.53553390593" y2="199.53553390593" style="stroke:#0bf;stroke-width:2;"/>
+   <line x1="496" y1="196" x2="499.53553390593" y2="192.46446609407" style="stroke:#0bf;stroke-width:2;"/>
+   <line x1="713" y1="277" x2="703" y2="277" style="stroke:#0b0;stroke-width:1;"/>
+   <line x1="501" y1="196" x2="491" y2="196" style="stroke:#0b0;stroke-width:1;"/>
+   <line x1="703" y1="277" x2="501" y2="196" style="stroke:#0b0;stroke-width:1;"/>
+   <line x1="705.5" y1="277" x2="709.03553390593" y2="280.53553390593" style="stroke:#0b0;stroke-width:2;"/>
+   <line x1="705.5" y1="277" x2="709.03553390593" y2="273.46446609407" style="stroke:#0b0;stroke-width:2;"/>
+   <line x1="496" y1="196" x2="499.53553390593" y2="199.53553390593" style="stroke:#0b0;stroke-width:2;"/>
+   <line x1="496" y1="196" x2="499.53553390593" y2="192.46446609407" style="stroke:#0b0;stroke-width:2;"/>
+   <rect width="81" height="20" x="410" y="166" style="fill:#007;stroke:black;"/>
+   <text width="81" height="20" x="415" y="180" style="fill:#fff;" font-family="Arial" font-size="16px"> users</text>
+   <rect width="81" height="20" x="410" y="186" style="fill:#aea;stroke:black;"/>
+   <text width="81" height="20" x="415" y="200" style="fill:black;" font-family="Arial" font-size="16px">id</text>
+   <rect width="81" height="20" x="410" y="206" style="fill:none;stroke:black;"/>
+   <text width="81" height="20" x="415" y="220" style="fill:black;" font-family="Arial" font-size="16px">username</text>
+   <rect width="81" height="20" x="410" y="226" style="fill:none;stroke:black;"/>
+   <text width="81" height="20" x="415" y="240" style="fill:black;" font-family="Arial" font-size="16px">password</text>
+   <rect width="81" height="20" x="410" y="246" style="fill:none;stroke:black;"/>
+   <text width="81" height="20" x="415" y="260" style="fill:black;" font-family="Arial" font-size="16px">email</text>
+   <rect width="81" height="20" x="410" y="266" style="fill:none;stroke:black;"/>
+   <text width="81" height="20" x="415" y="280" style="fill:black;" font-family="Arial" font-size="16px">created_at</text>
+   <rect width="81" height="20" x="410" y="286" style="fill:none;stroke:black;"/>
+   <text width="81" height="20" x="415" y="300" style="fill:black;" font-family="Arial" font-size="16px">update_at</text>
+   <rect width="81" height="20" x="410" y="306" style="fill:none;stroke:black;"/>
+   <text width="81" height="20" x="415" y="320" style="fill:black;" font-family="Arial" font-size="16px">role</text>
+   <rect width="81" height="20" x="121" y="139" style="fill:#007;stroke:black;"/>
+   <text width="81" height="20" x="126" y="153" style="fill:#fff;" font-family="Arial" font-size="16px"> user_infos</text>
+   <rect width="81" height="20" x="121" y="159" style="fill:#aea;stroke:black;"/>
+   <text width="81" height="20" x="126" y="173" style="fill:black;" font-family="Arial" font-size="16px">id</text>
+   <rect width="81" height="20" x="121" y="179" style="fill:none;stroke:black;"/>
+   <text width="81" height="20" x="126" y="193" style="fill:black;" font-family="Arial" font-size="16px">user_id</text>
+   <rect width="81" height="20" x="121" y="199" style="fill:none;stroke:black;"/>
+   <text width="81" height="20" x="126" y="213" style="fill:black;" font-family="Arial" font-size="16px">fullname</text>
+   <rect width="81" height="20" x="121" y="219" style="fill:none;stroke:black;"/>
+   <text width="81" height="20" x="126" y="233" style="fill:black;" font-family="Arial" font-size="16px">phone</text>
+   <rect width="81" height="20" x="121" y="239" style="fill:none;stroke:black;"/>
+   <text width="81" height="20" x="126" y="253" style="fill:black;" font-family="Arial" font-size="16px">address</text>
+   <rect width="81" height="20" x="121" y="259" style="fill:none;stroke:black;"/>
+   <text width="81" height="20" x="126" y="273" style="fill:black;" font-family="Arial" font-size="16px">gender</text>
+   <rect width="81" height="20" x="121" y="279" style="fill:none;stroke:black;"/>
+   <text width="81" height="20" x="126" y="293" style="fill:black;" font-family="Arial" font-size="16px">avatar</text>
+   <rect width="81" height="20" x="121" y="299" style="fill:none;stroke:black;"/>
+   <text width="81" height="20" x="126" y="313" style="fill:black;" font-family="Arial" font-size="16px">created_at</text>
+   <rect width="81" height="20" x="121" y="319" style="fill:none;stroke:black;"/>
+   <text width="81" height="20" x="126" y="333" style="fill:black;" font-family="Arial" font-size="16px">update_at</text>
+   <rect width="138" height="20" x="713" y="67" style="fill:#007;stroke:black;"/>
+   <text width="138" height="20" x="718" y="81" style="fill:#fff;" font-family="Arial" font-size="16px"> yeu_cau_sua_chua</text>
+   <rect width="138" height="20" x="713" y="87" style="fill:#aea;stroke:black;"/>
+   <text width="138" height="20" x="718" y="101" style="fill:black;" font-family="Arial" font-size="16px">id</text>
+   <rect width="138" height="20" x="713" y="107" style="fill:none;stroke:black;"/>
+   <text width="138" height="20" x="718" y="121" style="fill:black;" font-family="Arial" font-size="16px">ma_don</text>
+   <rect width="138" height="20" x="713" y="127" style="fill:none;stroke:black;"/>
+   <text width="138" height="20" x="718" y="141" style="fill:black;" font-family="Arial" font-size="16px">user_id</text>
+   <rect width="138" height="20" x="713" y="147" style="fill:none;stroke:black;"/>
+   <text width="138" height="20" x="718" y="161" style="fill:black;" font-family="Arial" font-size="16px">ho_ten</text>
+   <rect width="138" height="20" x="713" y="167" style="fill:none;stroke:black;"/>
+   <text width="138" height="20" x="718" y="181" style="fill:black;" font-family="Arial" font-size="16px">so_dien_thoai</text>
+   <rect width="138" height="20" x="713" y="187" style="fill:none;stroke:black;"/>
+   <text width="138" height="20" x="718" y="201" style="fill:black;" font-family="Arial" font-size="16px">dia_chi</text>
+   <rect width="138" height="20" x="713" y="207" style="fill:none;stroke:black;"/>
+   <text width="138" height="20" x="718" y="221" style="fill:black;" font-family="Arial" font-size="16px">mo_ta</text>
+   <rect width="138" height="20" x="713" y="227" style="fill:none;stroke:black;"/>
+   <text width="138" height="20" x="718" y="241" style="fill:black;" font-family="Arial" font-size="16px">media</text>
+   <rect width="138" height="20" x="713" y="247" style="fill:none;stroke:black;"/>
+   <text width="138" height="20" x="718" y="261" style="fill:black;" font-family="Arial" font-size="16px">thoi_gian_hen</text>
+   <rect width="138" height="20" x="713" y="267" style="fill:none;stroke:black;"/>
+   <text width="138" height="20" x="718" y="281" style="fill:black;" font-family="Arial" font-size="16px">nguoi_xu_ly</text>
+   <rect width="138" height="20" x="713" y="287" style="fill:none;stroke:black;"/>
+   <text width="138" height="20" x="718" y="301" style="fill:black;" font-family="Arial" font-size="16px">trang_thai</text>
+   <rect width="138" height="20" x="713" y="307" style="fill:none;stroke:black;"/>
+   <text width="138" height="20" x="718" y="321" style="fill:black;" font-family="Arial" font-size="16px">ghi_chu</text>
+   <rect width="138" height="20" x="713" y="327" style="fill:none;stroke:black;"/>
+   <text width="138" height="20" x="718" y="341" style="fill:black;" font-family="Arial" font-size="16px">created_at</text>
+   <rect width="138" height="20" x="713" y="347" style="fill:none;stroke:black;"/>
+   <text width="138" height="20" x="718" y="361" style="fill:black;" font-family="Arial" font-size="16px">update_at</text>
+   <rect width="138" height="20" x="713" y="367" style="fill:none;stroke:black;"/>
+   <text width="138" height="20" x="718" y="381" style="fill:black;" font-family="Arial" font-size="16px">chi_phi</text>
+</svg>

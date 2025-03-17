@@ -1,0 +1,28 @@
+@startuml
+
+node "Người dùng" {
+    [Trình duyệt Web]
+}
+
+node "Máy chủ Web" {
+        artifact "Ứng dụng PHP" {
+            component "Xử lý"
+            component "database.php"
+            component "Giao diện người dùng"
+        }
+}
+
+node "Máy chủ CSDL" {
+    database "MySQL Database"
+}
+
+[Trình duyệt Web] --> "Ứng dụng PHP" : Gửi yêu cầu HTTP
+"Máy chủ Web" --> "Ứng dụng PHP" : Chuyển tiếp yêu cầu
+"Ứng dụng PHP" -> "Xử lý" : Xử lý yêu cầu
+"Xử lý" --> "database.php" : Kết nối MySQL
+"database.php" --> "MySQL Database" : Gửi truy vấn SQL
+"MySQL Database" --> "database.php" : Trả dữ liệu
+"database.php" --> "Giao diện người dùng" : Xử lý dữ liệu
+"Giao diện người dùng" --> [Trình duyệt Web] : Hiển thị HTML
+
+@enduml

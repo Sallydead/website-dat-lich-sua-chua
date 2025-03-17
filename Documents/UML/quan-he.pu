@@ -1,0 +1,54 @@
+@startuml
+
+entity "Tài khoản" as TaiKhoan {
+    +TenDangNhap: String [PK]
+    +MatKhau: String
+    +PhanQuyen: Enum
+    +MaNV: String [FK]
+    +MaKH: String [FK]
+}
+
+entity "Khách hàng" as KhachHang {
+    +MaKH: String [PK]
+    +HoTen: String
+    +Email: String
+    +SDT: String
+}
+
+entity "Nhân viên" as NhanVien {
+    +MaNV: String [PK]
+    +ChucVu: Enum
+}
+
+entity "Yêu cầu sửa chữa" as YeuCauSuaChua {
+    +MaYeuCau: String [PK]
+    +MoTa: String
+    +TrangThai: Enum
+    +NgayGui: Datetime
+    +NgayHoanThanh: Datetime
+    +MaKH: String [FK]
+    +MaNV: String [FK]
+}
+
+entity "Báo cáo thống kê" as BaoCaoThongKe {
+    +MaBaoCao: String [PK]
+    +ThoiGianBatDau: Datetime
+    +ThoiGianKetThuc: Datetime
+    +TongSoYeuCau: Number
+    +SoYeuCauHoanThanh: Number
+    +SoYeuCauDangXuLy: Number
+}
+
+entity "Trạng thái xử lý" as TrangThai {
+    +MaTrangThai: String [PK]
+    +TenTrangThai: String
+}
+
+TaiKhoan ||--|| KhachHang : "1 - 1"
+TaiKhoan ||--|| NhanVien : "1 - 1"
+KhachHang ||--o{ YeuCauSuaChua : "1 - *"
+NhanVien ||--o{ YeuCauSuaChua : "1 - *"
+YeuCauSuaChua ||--|| TrangThai : "1 - 1"
+BaoCaoThongKe ||--o{ YeuCauSuaChua : "1 - *"
+
+@enduml
