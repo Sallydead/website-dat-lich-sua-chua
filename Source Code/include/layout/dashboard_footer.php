@@ -5,7 +5,7 @@
             <div class="container-fluid">
                 <div class="d-flex flex-wrap justify-content-between align-items-center">
                     <div class="text-muted">
-                        &copy; <?php echo date('Y'); ?> MinhGiangPC.Com
+                        &copy; <?php echo date('Y'); ?> Vũ Chí Linh Computer
                     </div>
                     <div class="text-muted">
                         <a href="#" class="text-muted text-decoration-none">Điều khoản</a>

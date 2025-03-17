@@ -9,7 +9,7 @@ function isCurrentUrl($path) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo isset($page_title) ? $page_title . ' - MinhGiangPC.Com' : 'Dashboard - MinhGiangPC.Com'; ?></title>
+    <title><?php echo isset($page_title) ? $page_title . ' - Vũ Chí Linh Computer' : 'Dashboard - Vũ Chí Linh Computer'; ?></title>
     
     <!-- Favicon -->
     <link rel="shortcut icon" href="/assets/media/favicon.ico">
@@ -35,7 +35,7 @@ function isCurrentUrl($path) {
 
                 <!-- Logo -->
                 <a href="/" class="navbar-brand d-flex align-items-center">
-                    <img src="/assets/media/logo.png" alt="Logo" height="20px" class="ms-2">
+                    <img src="/assets/media/logo.png" alt="Logo" width="50" class="ms-2">
                 </a>
 
                 <!-- Spacer -->
@@ -44,7 +44,17 @@ function isCurrentUrl($path) {
                 <!-- User Menu -->
                 <div class="dropdown">
                     <button type="button" class="btn btn-link text-dark dropdown-toggle d-flex align-items-center border-0" data-bs-toggle="dropdown">
-                        <i class="fas fa-user-circle fa-lg me-2"></i>
+                    <?php 
+                                $stmt = $pdo->prepare("SELECT avatar FROM user_infos WHERE user_id = ?");
+                                $stmt->execute([$_SESSION['user_id']]);
+                                $avatar = $stmt->fetchColumn();
+                                if($avatar): ?>
+                            <img src="/assets/media/uploads/avatars/<?php echo $avatar; ?>" class="rounded-circle me-2"
+                                width="30" height="30" style="object-fit: cover;width: 30px;height: 30px;">
+                            <?php else: ?>
+                            <img src="/assets/media/uploads/avatars/default.jpg" class="rounded-circle me-2" width="30"
+                                height="30" style="object-fit: cover;width: 30px;height: 30px;">
+                            <?php endif; ?>
                         <span class="d-none d-sm-inline"><?php echo $_SESSION['username']; ?></span>
                     </button>
                     <ul class="dropdown-menu dropdown-menu-end">
@@ -54,13 +64,8 @@ function isCurrentUrl($path) {
                             </a>
                         </li>
                         <li>
-                            <a class="dropdown-item py-2" href="#">
+                            <a class="dropdown-item py-2" href="/profile.php">
                                 <i class="fas fa-user fa-fw me-2"></i>Thông tin cá nhân
-                            </a>
-                        </li>
-                        <li>
-                            <a class="dropdown-item py-2" href="#">
-                                <i class="fas fa-key fa-fw me-2"></i>Đổi mật khẩu
                             </a>
                         </li>
                         <li><hr class="dropdown-divider"></li>

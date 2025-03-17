@@ -135,7 +135,7 @@ require_once '../../include/layout/dashboard_header.php';
                             </div>
                             <div class="col-md-4">
                                 <select name="role" class="form-select" onchange="this.form.submit()">
-                                    <option value="">Tất cả quyền</option>
+                                    <option value="">Tất cả nhân viên</option>
                                     <option value="0" <?php echo $role_filter === '0' ? 'selected' : ''; ?>>Khách hàng</option>
                                     <option value="1" <?php echo $role_filter === '1' ? 'selected' : ''; ?>>Admin</option>
                                     <option value="2" <?php echo $role_filter === '2' ? 'selected' : ''; ?>>CSKH</option>

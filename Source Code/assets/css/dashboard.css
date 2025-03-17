@@ -93,12 +93,6 @@ a, button {
   }
 }
 
-/* Logo */
-.navbar-brand img {
-  height: auto;
-  width: 150px;
-}
-
 /* Links */
 a {
   text-decoration: none !important;

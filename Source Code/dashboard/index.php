@@ -10,6 +10,35 @@ if(!isset($_SESSION['user_id'])) {
 
 $page_title = "Dashboard";
 
+// phân công
+// Lấy danh sách yêu cầu được phân công
+    $where = "";
+    $params = [];
+    
+        $where = "WHERE yc.nguoi_xu_ly = ? AND MONTH(yc.created_at) = MONTH(CURRENT_DATE()) AND YEAR(yc.created_at) = YEAR(CURRENT_DATE())";
+        $params = [$_SESSION['user_id']];
+
+
+    $stmt = $pdo->prepare("
+        SELECT 
+            yc.*,
+            u.username as nguoi_xu_ly_username,
+            ui.fullname as nguoi_xu_ly_name
+        FROM yeu_cau_sua_chua yc
+        LEFT JOIN users u ON yc.nguoi_xu_ly = u.id
+        LEFT JOIN user_infos ui ON u.id = ui.user_id
+        $where
+        ORDER BY 
+            CASE 
+                WHEN yc.thoi_gian_hen IS NOT NULL THEN yc.thoi_gian_hen
+                ELSE yc.created_at 
+            END ASC
+    ");
+    $stmt->execute($params);
+    $assignments = $stmt->fetchAll();
+
+    
+if(in_array($_SESSION['role'], [1,2])) { // Admin, CSKH
 // Lấy thống kê tổng quan
 $stats = [
     'total' => $pdo->query("SELECT COUNT(*) FROM yeu_cau_sua_chua")->fetchColumn(),
@@ -58,7 +87,7 @@ $top_staff = $pdo->query("
     ORDER BY total_orders DESC
     LIMIT 5
 ")->fetchAll();
-
+}
 // Mảng màu và tên cho từng role
 $role_colors = [
     1 => 'danger',   // Admin - đỏ
@@ -72,6 +101,7 @@ $role_names = [
     3 => 'Kỹ thuật viên'
 ];
 
+if(in_array($_SESSION['role'], [1,2])) { // Admin, CSKH
 // Lấy các yêu cầu mới nhất
 $latest_requests = $pdo->query("
     SELECT 
@@ -84,11 +114,14 @@ $latest_requests = $pdo->query("
     ORDER BY yc.created_at DESC
     LIMIT 5
 ")->fetchAll();
-
+}
 require_once '../include/layout/dashboard_header.php';
 ?>
 
 <div class="container-fluid">
+
+
+<?php if(in_array($_SESSION['role'], [1,2])): ?>
     <!-- Thống kê dạng card -->
     <div class="row g-3 mb-4">
         <!-- Người dùng -->
@@ -107,6 +140,7 @@ require_once '../include/layout/dashboard_header.php';
                 </div>
             </div>
         </div>
+        
 
         <!-- Ghi chú -->
         <div class="col-sm-6 col-md-3">
@@ -159,7 +193,92 @@ require_once '../include/layout/dashboard_header.php';
             </div>
         </div>
     </div>
+<?php endif; ?>
 
+<div class="row mb-4">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header bg-primary text-white">
+                <h5 class="mb-0">
+                    <?php if($_SESSION['role'] == 3): ?>
+                        <i class="fas fa-clipboard-list me-2"></i>Công việc được phân công
+                    <?php else: ?>
+                        <i class="fas fa-tasks me-2"></i>Yêu cầu trong tháng
+                    <?php endif; ?>
+                </h5>
+            </div>
+            <div class="card-body">
+                <?php if(empty($assignments)): ?>
+                <div class="text-center text-muted py-5">
+                    <i class="fas fa-check-circle fa-3x mb-3"></i>
+                    <p class="mb-0">Không có yêu cầu nào</p>
+                </div>
+                <?php else: ?>
+                <div class="table-responsive">
+                    <table class="table table-hover align-middle">
+                        <thead>
+                            <tr>
+                                <th>Mã đơn</th>
+                                <th>Khách hàng</th>
+                                <th>Thời gian hẹn</th>
+                                <th>Địa chỉ</th>
+                                <th>Trạng thái</th>
+                                <?php if($_SESSION['role'] != 3): ?>
+                                <th>Người xử lý</th>
+                                <?php endif; ?>
+                                <th>Thao tác</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php foreach($assignments as $yc): ?>
+                            <tr>
+                                <td class="fw-bold"><?php echo $yc['ma_don']; ?></td>
+                                <td>
+                                    <div class="fw-bold"><?php echo $yc['ho_ten']; ?></div>
+                                    <div class="small text-muted"><?php echo $yc['so_dien_thoai']; ?></div>
+                                </td>
+                                <td>
+                                    <?php if($yc['thoi_gian_hen']): ?>
+                                    <div class="text-danger fw-bold">
+                                        <?php echo date('d/m/Y H:i', strtotime($yc['thoi_gian_hen'])); ?>
+                                    </div>
+                                    <?php else: ?>
+                                    <span class="text-muted">Không có hẹn</span>
+                                    <?php endif; ?>
+                                </td>
+                                <td><?php echo $yc['dia_chi']; ?></td>
+                                <td>
+                                    <span class="badge bg-<?php echo get_status_color($yc['trang_thai']); ?>">
+                                        <?php echo get_status_text($yc['trang_thai']); ?>
+                                    </span>
+                                </td>
+                                <?php if($_SESSION['role'] != 3): ?>
+                                <td>
+                                    <?php if($yc['nguoi_xu_ly']): ?>
+                                        <?php echo $yc['nguoi_xu_ly_name'] ?: $yc['nguoi_xu_ly_username']; ?>
+                                    <?php else: ?>
+                                        <span class="text-muted">Chưa phân công</span>
+                                    <?php endif; ?>
+                                </td>
+                                <?php endif; ?>
+                                <td>
+                                    <a href="/dashboard/quan-ly-yeu-cau?search=<?php echo $yc['ma_don']; ?>" 
+                                       class="btn btn-sm btn-info">
+                                        <i class="fas fa-eye"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                            <?php endforeach; ?>
+                        </tbody>
+                    </table>
+                </div>
+                <?php endif; ?>
+            </div>
+        </div>
+    </div>
+</div>
+
+<?php if(in_array($_SESSION['role'], [1,2])): ?>
     <!-- Biểu đồ và Top nhân viên -->
     <div class="row g-4 mb-4">
         <div class="col-lg-8">
@@ -365,5 +484,6 @@ new Chart(ctx, {
     }
 });
 </script>
+<?php endif; ?>
 
 <?php require_once '../include/layout/dashboard_footer.php'; ?> 

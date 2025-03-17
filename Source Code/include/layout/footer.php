@@ -7,10 +7,10 @@
         <div class="row">
             <div class="col-md-4 mb-4">
                 <h5>Trụ sở chính</h5>
-                <p>Tổ dân phố 5, Hòa Thuận, Quảng Hòa, Cao Bằng.</p>
+                <p>TDP Minh Lập, Thị trấn Chũ, Lục Ngạn, Bắc Giang</p>
                 <p>
                     <i class="fas fa-phone"></i> Tổng đài hỗ trợ: 
-                    <a href="tel:0333332444" class="text-light">033.333.2444</a>
+                    <a href="tel:0856564665" class="text-light">0856564665</a>
                     <br>
                     <small>(từ 8h đến 22h các ngày trong tuần)</small>
                 </p>
@@ -20,17 +20,16 @@
                 <h5>Liên hệ</h5>
                 <p>
                     <i class="fas fa-envelope"></i> Email: 
-                    <a href="mailto:admin@minhgiangpc.com" class="text-light">admin@minhgiangpc.com</a>
+                    <a href="mailto:admin@chilinhcomputer.com" class="text-light">admin@chilinhcomputer.com</a>
                 </p>
                 <p>
-                    <i class="fas fa-map-marker-alt"></i> Địa chỉ: Tổ dân phố 5, Hòa Thuận, 
-                    <br>Quảng Hòa, Cao Bằng, Việt Nam
+                    <i class="fas fa-map-marker-alt"></i> TDP Minh Lập, Thị trấn Chũ, Lục Ngạn, Bắc Giang
                 </p>
             </div>
             
             <div class="col-md-4 mb-4">
                 <h5>Cam kết chất lượng và dịch vụ</h5>
-                <p>MinhGiangPC.Com cam kết đem đến khách hàng trải nghiệm dịch vụ tốt nhất, giá cả hợp lý nhất</p>
+                <p>Vũ Chí Linh Computer cam kết đem đến khách hàng trải nghiệm dịch vụ tốt nhất, giá cả hợp lý nhất</p>
                 <div class="mt-3">
                     <a href="#" class="text-light me-3"><i class="fab fa-facebook fa-2x"></i></a>
                     <a href="#" class="text-light me-3"><i class="fab fa-youtube fa-2x"></i></a>
@@ -42,7 +41,7 @@
         <hr class="my-4">
         
         <div class="text-center">
-            <p class="mb-0">&copy; <?php echo date('Y'); ?> MinhGiangPC.Com. All rights reserved.</p>
+            <p class="mb-0">&copy; <?php echo date('Y'); ?> Vũ Chí Linh Computer. All rights reserved.</p>
         </div>
     </div>
 </footer>

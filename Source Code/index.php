@@ -2,17 +2,25 @@
 session_start();
 require_once 'include/function.php';
 
+// Kiểm tra đăng nhập
+if(!isset($_SESSION['user_id'])) {
+    header("Location: login.php");
+    exit();
+}
+
 $page_title = "Trang chủ";
+
 require_once 'include/layout/header.php';
 ?>
 
+</div></div>
 <!-- Hero Section -->
-<div class="hero bg-primary text-white py-5">
+<div class="hero bg-primary text-white py-5" style="margin-top: -40px;">
     <div class="container-fluid px-4">
         <div class="row align-items-center">
             <div class="col-md-6">
-                <h1 class="display-4 fw-bold mb-4">MinhGiangPC.Com</h1>
-                <p class="lead mb-4">Chuyên cung cấp các dịch vụ sửa chữa, nâng cấp và bảo trì máy tính, laptop tại Cao Bằng</p>
+                <h1 class="display-4 fw-bold mb-4">Vũ Chí Linh Computer</h1>
+                <p class="lead mb-4">Chuyên cung cấp các dịch vụ sửa chữa, nâng cấp và bảo trì máy tính, laptop tại Bắc Giang</p>
                 <div class="d-flex gap-3">
                     <a href="dat-yeu-cau.php" class="btn btn-light btn-lg">
                         <i class="fas fa-tools me-2"></i>Đặt yêu cầu sửa chữa
@@ -23,53 +31,21 @@ require_once 'include/layout/header.php';
                 </div>
             </div>
             <div class="col-md-6">
-                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjMhMb1wEQaJ7xNhzXz-9O1Ec-ir7jw-ComE1iLOszHSU_8eWya0QvDEKOmBLMgrIi3LtG7b-48gVJhCKkshSKFxlhDngRF5L3lGl2xvBnK5eUuGfqYZQ4oovvsKfcFqOGv_dfNAoB9ic8lcipetd4cRqO5kwd67qlwWgmzThTFFTQEUGX0AGTEZ1n2/s1600/home_slider1.jpg" class="img-fluid">
+                <img src="/assets/media/banner1.png" class="img-fluid">
             </div>
         </div>
     </div>
 </div>
+<div class="main-content">
+    <div class="container-fluid px-4">
 
+<?php if(in_array($_SESSION['role'], [1,2])): // Chỉ admin và CSKH xem thống kê ?>
 <!-- Dịch vụ -->
 <section class="services py-5">
     <div class="container-fluid px-4">
-        <h2 class="text-center mb-5">Dịch vụ của chúng tôi</h2>
+        <h2 class="text-center mb-5">Thống kê dịch vụ</h2>
         <div class="row g-4">
-            <div class="col-md-3">
-                <div class="card h-100 border-0 shadow-sm">
-                    <div class="card-body text-center">
-                        <i class="fas fa-shopping-cart fa-3x text-primary mb-3"></i>
-                        <h4>Mua bán thiết bị</h4>
-                        <p>Cung cấp các thiết bị máy tính, linh kiện chính hãng với giá cả cạnh tranh và bảo hành uy tín</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card h-100 border-0 shadow-sm">
-                    <div class="card-body text-center">
-                        <i class="fas fa-tools fa-3x text-primary mb-3"></i>
-                        <h4>Sửa chữa máy tính</h4>
-                        <p>Dịch vụ sửa chữa, bảo trì máy tính, laptop chuyên nghiệp với đội ngũ kỹ thuật viên giàu kinh nghiệm</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card h-100 border-0 shadow-sm">
-                    <div class="card-body text-center">
-                        <i class="fas fa-network-wired fa-3x text-primary mb-3"></i>
-                        <h4>Thiết kế hệ thống mạng</h4>
-                        <p>Tư vấn, thiết kế và thi công hệ thống mạng LAN, WiFi cho doanh nghiệp và hộ gia đình</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card h-100 border-0 shadow-sm">
-                    <div class="card-body text-center">
-                        <i class="fas fa-video fa-3x text-primary mb-3"></i>
-                        <h4>Lắp đặt camera</h4>
-                        <p>Lắp đặt hệ thống camera giám sát an ninh chất lượng cao, giám sát từ xa qua điện thoại</p>
-                    </div>
-                </div>
-            </div>
+            <!-- ... các card thống kê ... -->
         </div>
     </div>
 </section>
@@ -77,39 +53,31 @@ require_once 'include/layout/header.php';
 <!-- Cam kết -->
 <section class="features bg-light py-5">
     <div class="container-fluid px-4">
-        <h2 class="text-center mb-5">Cam kết của chúng tôi</h2>
+        <h2 class="text-center mb-5">Thống kê chi tiết</h2>
         <div class="row g-4">
-            <div class="col-md-3">
-                <div class="text-center">
-                    <i class="fas fa-clock fa-2x text-primary mb-3"></i>
-                    <h5>Phục vụ 24/7</h5>
-                    <p>Sẵn sàng hỗ trợ mọi lúc mọi nơi</p>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="text-center">
-                    <i class="fas fa-tools fa-2x text-primary mb-3"></i>
-                    <h5>Kỹ thuật chuyên nghiệp</h5>
-                    <p>Đội ngũ kỹ thuật viên giàu kinh nghiệm</p>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="text-center">
-                    <i class="fas fa-shield-alt fa-2x text-primary mb-3"></i>
-                    <h5>Bảo hành uy tín</h5>
-                    <p>Cam kết bảo hành dài hạn cho dịch vụ</p>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="text-center">
-                    <i class="fas fa-hand-holding-usd fa-2x text-primary mb-3"></i>
-                    <h5>Giá cả hợp lý</h5>
-                    <p>Chi phí cạnh tranh, minh bạch</p>
+            <!-- ... các thống kê chi tiết ... -->
+        </div>
+    </div>
+</section>
+<?php endif; ?>
+
+<?php if($_SESSION['role'] == 3): // KTV chỉ xem phân công ?>
+<!-- Phân công công việc -->
+<section class="py-5">
+    <div class="container-fluid px-4">
+        <h2 class="text-center mb-5">Công việc được phân công</h2>
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <!-- Hiển thị danh sách công việc -->
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
+<?php endif; ?>
 
 <!-- Liên hệ -->
 <section class="contact py-5">
